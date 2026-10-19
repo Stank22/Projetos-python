@@ -23,8 +23,18 @@ class TestOperacoes(unittest.TestCase):
 
 
     def test_dividir_por_zero(self):   
-       resultado =  dividir(10, 0)
+       resultado = dividir(10, 0)
        self.assertEqual(resultado, 'Numero invalido')
+
+
+    def test_somar_negativos(self):
+        resultado = somar(-10, -5)
+        self.assertEqual(resultado, -15)
+
+
+    def test_multiplicar_por_zero(self):
+        resultado = multiplicar (25, 0)
+        self.assertEqual(resultado, 0)        
 
 if __name__ == '__main__':
     unittest.main()
