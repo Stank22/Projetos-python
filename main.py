@@ -1,5 +1,6 @@
 from operacoes import somar, subtrair, multiplicar, dividir
 
+
 def mostrar_menu():
     print('''===== CALCULADORA =====
 1 - Somar
@@ -10,7 +11,7 @@ def mostrar_menu():
 
 print('CALCULADORA PYTHON XD')
 
-while True: 
+while True:
     mostrar_menu()
 
     operacao = input('Escolha Operação:')
@@ -24,22 +25,32 @@ while True:
     except ValueError:
         print('Erro: digite apenas numeros válidos')
 
-    else: 
+    else:
         if operacao == '1':
             resultado = somar(primeiro_numero, segundo_numero)
             print(f'Resultado: {resultado}')
+
         elif operacao == '2':
             resultado = subtrair(primeiro_numero, segundo_numero)
-            print(f'Resultado: {resultado}')  
+            print(f'Resultado: {resultado}')
+
         elif operacao == '3':
             resultado = multiplicar(primeiro_numero, segundo_numero)
             print(f'Resultado: {resultado}')
+
         elif operacao == '4':
-             print(f'Resultado: {dividir(primeiro_numero, segundo_numero)}')
+            try:
+                resultado = dividir(primeiro_numero, segundo_numero)
+                print(f'Resultado: {resultado}')
+            except ValueError as e:
+                print(f'Erro: {e}')
+
         else:
-            print('Operação inválida')       
+            print('Operação inválida')
+
     resposta = input('Deseja realizar outro cálculo? (s/n)').lower()
 
     if resposta == 'n':
         break
+
 print('Calculadora encerrada.')
