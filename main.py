@@ -25,7 +25,7 @@ while True:
     except ValueError:
         print('Erro: digite apenas numeros válidos')
 
-    else:
+    else: 
         if operacao == '1':
             resultado = somar(primeiro_numero, segundo_numero)
             print(f'Resultado: {resultado}')
