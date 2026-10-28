@@ -26,26 +26,32 @@ while True:
         print('Erro: digite apenas numeros válidos')
 
     else: 
-        if operacao == '1':
-            resultado = somar(primeiro_numero, segundo_numero)
-            print(f'Resultado: {resultado}')
+       def realizar_calculo(operacao, primeiro_numero, segundo_numero):
+            if operacao == '1':
+                resultado = somar(primeiro_numero, segundo_numero)
+                return resultado
 
-        elif operacao == '2':
-            resultado = subtrair(primeiro_numero, segundo_numero)
-            print(f'Resultado: {resultado}')
+            elif operacao == '2':
+                resultado = subtrair(primeiro_numero, segundo_numero)
+                return resultado
 
-        elif operacao == '3':
-            resultado = multiplicar(primeiro_numero, segundo_numero)
-            print(f'Resultado: {resultado}')
+            elif operacao == '3':
+                resultado = multiplicar(primeiro_numero, segundo_numero)
+                return resultado
 
-        elif operacao == '4':
-            try:
+            elif operacao == '4':
+                resultado = dividir(primeiro_numero, segundo_numero)
+                return resultado
+
+            else:
+                print('Operação inválida')
+                return None
                 resultado = dividir(primeiro_numero, segundo_numero)
                 print(f'Resultado: {resultado}')
-            except ValueError as e:
+                except ValueError as e:
                 print(f'Erro: {e}')
 
-        else:
+            else:
             print('Operação inválida')
 
     resposta = input('Deseja realizar outro cálculo? (s/n)').lower()
