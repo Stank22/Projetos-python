@@ -1,16 +1,22 @@
-from main import realizar_calculo
+import unittest
 
-def test_realizar_calculo():
-    # Teste de soma
-    assert realizar_calculo('1', 2, 3) == 5
-    # Teste de subtração
-    assert realizar_calculo('2', 5, 3) == 2
-    # Teste de multiplicação
-    assert realizar_calculo('3', 4, 5) == 20
-    # Teste de divisão
-    assert realizar_calculo('4', 10, 2) == 5.0
-    # Teste de operação inválida
-    assert realizar_calculo('5', 1, 1) is None
+from calculos import realizar_calculo
 
 
+class TestCalculos(unittest.TestCase):
 
+    def test_realizar_soma(self):
+        resultado = realizar_calculo('1', 2, 3)
+        self.assertEqual(resultado, 5)
+
+    def test_realizar_subtracao(self):
+        resultado = realizar_calculo('2', 5, 3)
+        self.assertEqual(resultado, 2)
+
+    def test_realizar_multiplicacao(self):
+        resultado = realizar_calculo('3', 4, 5)
+        self.assertEqual(resultado, 20)
+
+    def test_realizar_divisao(self):
+        resultado = realizar_calculo('4', 10, 2)
+        self.assertEqual(resultado, 5.0)

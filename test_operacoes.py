@@ -1,13 +1,7 @@
 
 import unittest
-from operacoes import somar, subtrair, multiplicar, dividir
-<<<<<<< HEAD
-from decimal import Decimal, arredondar_valor
-=======
+from operacoes import somar, subtrair, multiplicar, dividir, arredondar_valor
 from decimal import Decimal
-from operacoes import arredondar_valor  
-
->>>>>>> b9b2213 (adicionado novas funcionalidades e testes para operações matemáticas)
 
 class TestOperacoes(unittest.TestCase):
 
@@ -86,16 +80,13 @@ class TestOperacoes(unittest.TestCase):
                 resultado = dividir(a, b)
                 self.assertAlmostEqual(resultado, esperado)
 
-    def test_arredondar_valor(self):
-        valor = Decimal('150.998')
-        esperado = Decimal('151.00')
-        
-        resultado = arredondar_valor(resultado)
-        self.assertEqual(resultado, esperado)
-        
+    
+def test_arredondar_valor(self):
+    valor = Decimal('150.998')
+    esperado = Decimal('151.00')
 
-        resultado = arredondar_valor(valor)
-        self.assertEqual(resultado, esperado)
+    resultado = arredondar_valor(valor)
+    self.assertEqual(resultado, esperado)
 
     def test_arredondar_valor_invalido(self):
         with self.assertRaises(ValueError):

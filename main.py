@@ -1,4 +1,5 @@
-from operacoes import somar, subtrair, multiplicar, dividir
+
+from calculos import realizar_calculo
 
 
 def mostrar_menu():
@@ -9,54 +10,44 @@ def mostrar_menu():
 4 - Dividir
 0 - Sair''')
 
-print('CALCULADORA PYTHON XD')
 
-while True:
-    mostrar_menu()
+def main():
+    print('CALCULADORA PYTHON XD')
 
-    operacao = input('Escolha Operação:')
-    if operacao == '0':
-        break
+    while True:
+        mostrar_menu()
 
-    try:
-        primeiro_numero = float(input('digite o primeiro numero:'))
-        segundo_numero = float(input('digite o segundo numero:'))
+        operacao = input('Escolha a operação: ')
 
-    except ValueError:
-        print('Erro: digite apenas numeros válidos')
+        if operacao == '0':
+            break
 
-    else: 
-       def realizar_calculo(operacao, primeiro_numero, segundo_numero):
-            if operacao == '1':
-                resultado = somar(primeiro_numero, segundo_numero)
-                return resultado
-
-            elif operacao == '2':
-                resultado = subtrair(primeiro_numero, segundo_numero)
-                return resultado
-
-            elif operacao == '3':
-                resultado = multiplicar(primeiro_numero, segundo_numero)
-                return resultado
-
-            elif operacao == '4':
-                resultado = dividir(primeiro_numero, segundo_numero)
-                return resultado
-
-            else:
-                print('Operação inválida')
-                return None
-                resultado = dividir(primeiro_numero, segundo_numero)
-                print(f'Resultado: {resultado}')
-                except ValueError as e:
-                print(f'Erro: {e}')
-
-            else:
+        if operacao not in ('1', '2', '3', '4'):
             print('Operação inválida')
+            continue
 
-    resposta = input('Deseja realizar outro cálculo? (s/n)').lower()
+        try:
+            primeiro_numero = float(input('Digite o primeiro número: '))
+            segundo_numero = float(input('Digite o segundo número: '))
 
-    if resposta == 'n':
-        break
+            resultado = realizar_calculo(
+                operacao,
+                primeiro_numero,
+                segundo_numero
+            )
 
-print('Calculadora encerrada.')
+            print(f'Resultado: {resultado}')
+
+        except ValueError as e:
+            print(f'Erro: {e}')
+
+        resposta = input('Deseja realizar outro cálculo? (s/n): ').lower()
+
+        if resposta == 'n':
+            break
+
+    print('Calculadora encerrada.')
+
+
+if __name__ == '__main__':
+    main()

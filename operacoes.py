@@ -20,12 +20,6 @@ def dividir(primeiro_numero, segundo_numero):
 
 
 def arredondar_valor(valor):
-    valor = valor.quantize(Decimal('0.01'))
-    return valor
-    return primeiro_numero / segundo_numero
-
-
-def arredondar_valor(valor):
     if not isinstance(valor, Decimal):
         raise ValueError("O valor deve ser do tipo Decimal.")
 
